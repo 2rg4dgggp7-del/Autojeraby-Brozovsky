@@ -119,18 +119,20 @@
           <p><strong>Miroslav Brožovský</strong><br>Tel.: <a href="tel:+420602455184">+420 602 455 184</a><br><a href="mailto:miroslav.brozovsky@brozovsky.cz">miroslav.brozovsky@brozovsky.cz</a></p>
         </div>
       </div>
-      <form id="kontaktni-formular">
-        <label for="jmeno">Jméno a příjmení</label>
-        <input id="jmeno" name="jmeno" type="text" required autocomplete="name">
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" required autocomplete="email">
-        <label for="predmet">Předmět</label>
-        <input id="predmet" name="predmet" type="text" required>
-        <label for="zprava">Zpráva</label>
-        <textarea id="zprava" name="zprava" required></textarea>
-        <button class="tlacitko" type="submit">Odeslat zprávu</button>
-        <p id="stav" role="status"></p>
-      </form>
+   <form id="kontaktni-formular">
+  <input type="hidden" name="access_key" value="8b8368d8-e6be-48b9-b984-622ae5d88ae0">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+  <label for="jmeno">Jméno a příjmení</label>
+  <input id="jmeno" name="name" type="text" required autocomplete="name">
+  <label for="email">E-mail</label>
+  <input id="email" name="email" type="email" required autocomplete="email">
+  <label for="predmet">Předmět</label>
+  <input id="predmet" name="subject" type="text" required>
+  <label for="zprava">Zpráva</label>
+  <textarea id="zprava" name="message" required></textarea>
+  <button class="tlacitko" type="submit">Odeslat zprávu</button>
+  <p id="stav" role="status"></p>
+</form>
     </div>
   </div>
 </section>
