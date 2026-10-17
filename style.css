@@ -91,3 +91,5 @@ footer{background:var(--ocel);color:#c9ced3;padding:1.6rem 1.5rem;text-align:cen
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .stred{text-align:center}
+
+.akce:nth-of-type(-n+2) .foto{max-width:360px;justify-self:center}
