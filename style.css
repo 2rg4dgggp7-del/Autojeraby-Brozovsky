@@ -1,0 +1,93 @@
+:root{
+  --ocel:#1c2630;
+  --ocel-2:#2b3946;
+  --zluta:#f2b705;
+  --beton:#eceef0;
+  --bila:#ffffff;
+  --text:#1c2630;
+  --sedá:#5b6773;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{font-family:'Barlow',Arial,sans-serif;color:var(--text);background:var(--bila);line-height:1.65;font-size:18px}
+h1,h2,h3{font-family:'Barlow Condensed','Arial Narrow',sans-serif;line-height:1.1;letter-spacing:.01em}
+h2{font-size:2.6rem;margin-bottom:1.2rem}
+h3{font-size:1.5rem;margin-bottom:.4rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--zluta);outline-offset:3px}
+
+/* HLAVIČKA */
+header{background:var(--ocel);position:sticky;top:0;z-index:50;border-bottom:4px solid var(--zluta)}
+.hlavicka{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:2rem;padding:.6rem 1.5rem}
+.logo{flex:0 0 33%;max-width:33%;display:block}
+.logo img{display:block;width:100%;height:auto;max-height:120px;object-fit:contain;object-position:left center}
+nav{flex:1}
+nav ul{list-style:none;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:.2rem 1.6rem}
+nav a{color:var(--bila);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;padding:.3rem 0;border-bottom:3px solid transparent}
+nav a:hover,nav a[aria-current="page"]{border-bottom-color:var(--zluta)}
+.menu-tlacitko{display:none;background:none;border:2px solid var(--zluta);color:var(--bila);font-size:1.6rem;padding:.1rem .7rem;cursor:pointer;margin-left:auto}
+
+/* ÚVOD */
+.uvod{background:linear-gradient(rgba(28,38,48,.62),rgba(28,38,48,.62)),url('images/uvod.jpg') center/cover,var(--ocel-2);color:var(--bila);padding:7rem 1.5rem}
+.uvod div{max-width:1300px;margin:0 auto}
+.uvod h1{font-size:clamp(2.8rem,6vw,5rem);max-width:14ch;margin-bottom:1rem}
+.uvod p{font-size:1.3rem;max-width:34rem;margin-bottom:2rem}
+.tlacitko{display:inline-block;background:var(--zluta);color:var(--ocel);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:600;padding:.6rem 1.8rem;border:0;cursor:pointer}
+.tlacitko:hover{background:#ffd23d}
+
+/* SEKCE */
+section{padding:5rem 1.5rem}
+.obal{max-width:1300px;margin:0 auto}
+.uzky{max-width:46rem}
+.svetla{background:var(--beton)}
+.tmava{background:var(--ocel);color:var(--bila)}
+.stranka-hlavicka{background:var(--ocel-2);color:var(--bila);padding:3.5rem 1.5rem}
+.stranka-hlavicka h1{font-size:3.4rem;max-width:1300px;margin:0 auto}
+
+/* TECHNIKA */
+.mrizka{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.stroj{background:var(--bila);border-left:6px solid var(--zluta)}
+.foto{aspect-ratio:4/3;background:#c9ced3;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.stroj .text{padding:1.2rem 1.4rem 1.6rem}
+.stroj p{color:var(--sedá);font-size:1rem}
+.odkaz-vice{margin-top:2.5rem}
+
+/* NABÍDKA */
+.nabidka p{margin-bottom:1.1rem}
+.nabidka h2{color:var(--zluta)}
+
+/* UKÁZKA PRÁCE */
+.akce{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin-bottom:3.5rem}
+.akce:nth-child(even) .foto{order:2}
+.akce .foto{aspect-ratio:auto;background:none}
+.akce .foto img{height:auto}
+.akce p{color:var(--sedá)}
+
+/* KONTAKT */
+.kontakt-mrizka{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.kontakt-mrizka p{margin-bottom:.8rem}
+.kontakt-mrizka a{text-decoration-color:var(--zluta);text-underline-offset:3px}
+.osoba{margin-top:1.6rem;padding-top:1.2rem;border-top:2px solid var(--zluta)}
+form label{display:block;font-weight:600;margin:1rem 0 .3rem}
+form input,form textarea{width:100%;font:inherit;padding:.7rem .8rem;border:2px solid #b8c0c8;background:var(--bila)}
+form textarea{min-height:9rem;resize:vertical}
+form button{margin-top:1.4rem}
+#stav{margin-top:1rem;font-weight:600}
+
+footer{background:var(--ocel);color:#c9ced3;padding:1.6rem 1.5rem;text-align:center;font-size:.95rem;border-top:4px solid var(--zluta)}
+
+@media (max-width:900px){
+  .hlavicka{flex-wrap:wrap}
+  .logo{flex:0 0 60%;max-width:60%}
+  .menu-tlacitko{display:block}
+  nav{flex:1 0 100%;display:none}
+  nav.otevrene{display:block}
+  nav ul{flex-direction:column;gap:.3rem;padding-bottom:.8rem}
+  .akce,.kontakt-mrizka{grid-template-columns:1fr}
+  .akce:nth-child(even) .foto{order:0}
+  section{padding:3.5rem 1.2rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.stred{text-align:center}
