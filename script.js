@@ -9,14 +9,29 @@ if (tlacitko) {
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('otevrene')));
 }
 
-// Kontaktní formulář – otevře e-mailový program s vyplněnou zprávou
 const formular = document.getElementById('kontaktni-formular');
 if (formular) {
-  formular.addEventListener('submit', e => {
+  formular.addEventListener('submit', async e => {
     e.preventDefault();
-    const d = new FormData(formular);
-    const telo = `Jméno a příjmení: ${d.get('jmeno')}\nE-mail: ${d.get('email')}\n\n${d.get('zprava')}`;
-    window.location.href = 'mailto:info@brozovsky.cz?subject=' + encodeURIComponent(d.get('predmet')) + '&body=' + encodeURIComponent(telo);
-    document.getElementById('stav').textContent = 'Otevíráme váš e-mailový program. Zprávu stačí odeslat.';
+    const stav = document.getElementById('stav');
+    stav.textContent = 'Odesílám…';
+    try {
+      const odpoved = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(formular) });
+      const data = await odpoved.json();
+      if (data.success) {
+        formular.reset();
+        stav.textContent = 'Děkujeme, zpráva byla odeslána.';
+      } else {
+        stav.textContent = 'Odeslání se nepovedlo. Zavolejte nám prosím nebo napište e-mail.';
+      }
+    } catch {
+      stav.textContent = 'Odeslání se nepovedlo. Zavolejte nám prosím nebo napište e-mail.';
+    }
   });
 }
+// Posun na sekce podle skutečné výšky hlavičky
+const hlavicka = document.querySelector('header');
+const nastavVysku = () => document.documentElement.style.setProperty('--hlavicka', hlavicka.offsetHeight + 'px');
+new ResizeObserver(nastavVysku).observe(hlavicka);
+nastavVysku();
+

@@ -8,7 +8,7 @@
   --sedá:#5b6773;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:110px}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hlavicka,110px)}
 body{font-family:'Barlow',Arial,sans-serif;color:var(--text);background:var(--bila);line-height:1.65;font-size:18px}
 h1,h2,h3{font-family:'Barlow Condensed','Arial Narrow',sans-serif;line-height:1.1;letter-spacing:.01em}
 h2{font-size:2.6rem;margin-bottom:1.2rem}
